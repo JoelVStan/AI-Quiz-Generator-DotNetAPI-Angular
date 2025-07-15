@@ -1,0 +1,224 @@
+<div class="parent">
+  <div class="container py-5">
+    <div class="form-check form-switch mb-3">
+            <input
+                class="form-check-input"
+                type="checkbox"
+                id="darkModeToggle"
+                [(ngModel)]="darkMode"
+                (change)="toggleDarkMode()"
+            />
+            <label class="form-check-label" for="darkModeToggle">
+                Dark Mode
+            </label>
+        </div>
+    <!-- Header -->
+    <div class="text-center mb-5">    
+      <div class="icon-circle">
+        <i class="fas fa-brain text-white" style="font-size: 2.5rem"></i>
+      </div>
+      <h1 class="display-4 fw-bold text-primary mb-2">AI Quiz Generator</h1>
+      <p class="lead text-muted">
+        Create engaging quizzes instantly with AI-powered questions
+      </p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <!-- Quiz Form -->
+        <div *ngIf="!questions.length" class="card shadow-lg border-0 mb-4">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-center mb-4">
+              <i
+                class="fas fa-file-text text-primary me-2"
+                style="font-size: 1.5rem"
+              ></i>
+              <h3 class="card-title mb-0">Generate New Quiz</h3>
+            </div>
+
+            <form #quizForm="ngForm" (ngSubmit)="generateQuiz()">
+              <div class="row g-3">
+                <!-- Topic -->
+                <div class="col-md-6">
+                  <label for="topic" class="form-label fw-semibold">
+                    <i class="fas fa-brain me-2"></i> Topic
+                  </label>
+                  <input
+                    type="text"
+                    id="topic"
+                    name="topic"
+                    class="form-control form-control-lg"
+                    placeholder="e.g., JavaScript, History, Science"
+                    [(ngModel)]="topic"
+                    required
+                    #topicField="ngModel"
+                  />
+                  <div
+                    *ngIf="topicField.invalid && topicField.touched"
+                    class="text-danger small mt-1"
+                  >
+                    Topic is required.
+                  </div>
+                </div>
+
+                <!-- Number of Questions -->
+                <div class="col-md-3">
+                  <label for="numberOfQuestions" class="form-label fw-semibold">
+                    <i class="fas fa-list-ol me-2"></i> Questions
+                  </label>
+                  <input
+                    type="number"
+                    id="numberOfQuestions"
+                    name="numberOfQuestions"
+                    class="form-control form-control-lg"
+                    [(ngModel)]="numberOfQuestions"
+                    min="1"
+                    max="30"
+                    required
+                    #numberOfQuestionsField="ngModel"
+                  />
+                  <div
+                    *ngIf="
+                      numberOfQuestionsField.invalid &&
+                      numberOfQuestionsField.touched
+                    "
+                    class="text-danger small mt-1"
+                  >
+                    Number must be between 1 and 30.
+                  </div>
+                </div>
+
+                <!-- Type -->
+                <div class="col-md-3">
+                  <label for="type" class="form-label fw-semibold">
+                    <i class="fas fa-check-circle me-2"></i> Type
+                  </label>
+                  <select
+                    id="type"
+                    name="type"
+                    class="form-select form-select-lg"
+                    [(ngModel)]="type"
+                    required
+                  >
+                    <option value="mcq">Multiple Choice</option>
+                    <option value="yesno">Yes/No</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Buttons -->
+              <div class="d-flex gap-3 mt-4">
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-lg px-4 flex-grow-1"
+                  [disabled]="quizForm.invalid"
+                >
+                  <i class="fas fa-brain me-2"></i> Generate Quiz
+                </button>
+
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary btn-lg px-4"
+                  (click)="resetForm()"
+                >
+                  Reset
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div *ngIf="loading" class="mt-3 text-center">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+
+        <div *ngIf="error" class="alert alert-danger mt-3">
+          {{ error }}
+        </div>
+
+        <!-- Quiz Display Section -->
+        <div *ngIf="questions.length > 0" class="card shadow border-0 mb-5">
+          <div class="card-body p-4">
+            <h4 class="mb-4">
+              <i class="fas fa-question-circle me-2 text-primary"></i>Quiz
+              Questions
+            </h4>
+
+            <div *ngFor="let q of questions; let i = index" class="mb-4">
+                <h5 class="mb-2">{{ i + 1 }}. {{ q.question }}</h5>
+
+                <div class="list-group">
+                    <label
+                    *ngFor="let opt of q.options"
+                    class="list-group-item"
+                    [ngClass]="{
+                        'list-group-item-success': submitted && opt === q.selectedAnswer && q.isCorrect,
+                        'list-group-item-danger': submitted && opt === q.selectedAnswer && !q.isCorrect,
+                        'list-group-item-light': submitted && opt !== q.selectedAnswer
+                    }"
+                    >
+                    <input
+                        type="radio"
+                        [name]="'question' + i"
+                        [value]="opt"
+                        [(ngModel)]="selectedAnswers[i]"
+                        [disabled]="submitted"
+                        class="form-check-input me-2"
+                    />
+                    {{ opt }}
+                    </label>
+                </div>
+
+                <!-- Show correct answer if user got it wrong -->
+                <div *ngIf="submitted && !q.isCorrect" class="mt-2 text-success small">
+                    ✅ Correct answer: <strong>{{ q.correctAnswer }}</strong>
+                </div>
+                <!-- Show explanation -->
+                <div *ngIf="submitted && q.explanation" class="mt-2 text-muted small">
+                💡 <strong>Explanation:</strong> {{ q.explanation }}
+                </div>
+
+            </div>
+
+
+            <!-- Submit Button -->
+            <div class="d-flex justify-content-center">
+              <button
+                class="btn btn-success btn-lg px-4 flex-grow-1"
+                (click)="submitQuiz()"
+                [disabled]="submitted"
+              >
+                <i class="fas fa-paper-plane me-2"></i> Submit Quiz
+              </button>
+            </div>
+
+            <!-- Score Display -->
+            <!-- <div *ngIf="submitted" class="mt-4 text-center">
+              <h5 class="fw-bold">
+                Your Score: {{ score }} / {{ questions.length }}
+              </h5>
+            </div> -->
+            <div *ngIf="submitted" class="mt-3">
+                <h4>Your Score: {{ score }} / {{ questions.length }}</h4>
+                <p class="lead">{{ resultMessage }}</p>
+            </div>
+             <!-- Refresh button -->
+            <button class="btn btn-light mt-3" (click)="refreshPage()">
+                🔁 Generate another quiz
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-light text-center text-muted py-3 border-top">
+  <div class="container">
+    <small>
+      &copy; {{ currentYear }} AI Quiz Generator. Created by <strong>Joel Stanley</strong>.
+    </small>
+  </div>
+</footer>
+

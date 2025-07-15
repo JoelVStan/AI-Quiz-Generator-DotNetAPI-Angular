@@ -1,0 +1,68 @@
+✅ EASY FEATURES (Quick Wins)
+✅ 1. Show Correct Answers After Submission
+After submitting, highlight correct and incorrect answers with color (green/red).
+
+Show the correct answer below each question if the user was wrong.
+
+2. Question Timer (Optional Per Question)
+Add an optional timer (e.g., 30 seconds) for each question.
+
+If the timer runs out, move to the next question or auto-submit.
+
+✅3. Loader Spinner While Generating
+Show a loading spinner or animation when the quiz is being generated from API.
+
+4. Difficulty Level
+Let user pick easy, medium, or hard difficulty (if you plan to support that via prompt or future API logic).
+
+5. Reset Quiz Without Page Reload
+Instead of window.location.reload(), clean state using Angular only.
+
+🔧 MEDIUM FEATURES (Value Additions)
+6. Category Selector
+Add predefined categories (e.g., Science, Technology, Geography) for quick access.
+
+7. Save Past Quizzes (LocalStorage or DB)
+Store past quizzes locally in localStorage or in a small backend DB.
+
+Let user review previously taken quizzes.
+
+8. Review Mode
+After submission, let the user toggle a "Review Mode" to see:
+
+Their answer
+
+Correct answer
+
+Explanation (optional if included via API)
+
+✅9. Dark Mode Toggle
+Add a simple light/dark mode switch with Angular and Bootstrap.
+
+🚀 ADVANCED FEATURES (Professional-Level)
+10. User Authentication
+Let users log in (via Firebase Auth or JWT) to track their progress, history, and scores.
+
+11. Leaderboard
+Track scores and show a leaderboard (for registered users or globally).
+
+12. Quiz History & Score Graph
+Show graphs (using Chart.js or ngx-charts) of the user's quiz history over time.
+
+13. Export to PDF
+Let users download their quiz results or questions as a PDF.
+
+14. Voice-Based Quiz (Speech-to-Text)
+Let users give answers via microphone using Web Speech API.
+
+15. AI Explanation for Answers (Optional)
+Use Gemini again to generate a short explanation for each question and answer.
+
+🎁 BONUS IDEAS
+Daily Quiz Reminder Email (Send a daily quiz to their inbox using backend + Brevo)
+
+Gamification: Add points, badges, levels.
+
+Bookmark Questions: Let users save questions they found interesting.
+
+Question Feedback: Let user mark a question as unclear or wrong.

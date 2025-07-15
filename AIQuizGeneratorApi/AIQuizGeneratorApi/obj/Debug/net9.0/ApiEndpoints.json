@@ -1,0 +1,44 @@
+[
+  {
+    "ContainingType": "AIQuizGeneratorApi.Controllers.ExplanationController",
+    "Method": "Post",
+    "RelativePath": "api/Explanation",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "AIQuizGeneratorApi.Models.ExplanationRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "AIQuizGeneratorApi.Models.ExplanationResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "AIQuizGeneratorApi.Controllers.QuizController",
+    "Method": "GenerateQuiz",
+    "RelativePath": "api/Quiz/generate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "AIQuizGeneratorApi.Models.QuizRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

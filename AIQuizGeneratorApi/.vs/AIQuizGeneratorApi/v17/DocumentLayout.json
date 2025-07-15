@@ -1,0 +1,129 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\joelk\\Documents\\My Projects\\AI Quiz Generator\\AIQuizGeneratorApi\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BDAAC5D0-2B30-492D-BDB5-F41873C049E7}|AIQuizGeneratorApi\\AIQuizGeneratorApi.csproj|c:\\users\\joelk\\documents\\my projects\\ai quiz generator\\aiquizgeneratorapi\\aiquizgeneratorapi\\controllers\\explanationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDAAC5D0-2B30-492D-BDB5-F41873C049E7}|AIQuizGeneratorApi\\AIQuizGeneratorApi.csproj|solutionrelative:aiquizgeneratorapi\\controllers\\explanationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDAAC5D0-2B30-492D-BDB5-F41873C049E7}|AIQuizGeneratorApi\\AIQuizGeneratorApi.csproj|c:\\users\\joelk\\documents\\my projects\\ai quiz generator\\aiquizgeneratorapi\\aiquizgeneratorapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDAAC5D0-2B30-492D-BDB5-F41873C049E7}|AIQuizGeneratorApi\\AIQuizGeneratorApi.csproj|solutionrelative:aiquizgeneratorapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDAAC5D0-2B30-492D-BDB5-F41873C049E7}|AIQuizGeneratorApi\\AIQuizGeneratorApi.csproj|c:\\users\\joelk\\documents\\my projects\\ai quiz generator\\aiquizgeneratorapi\\aiquizgeneratorapi\\models\\explanationresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDAAC5D0-2B30-492D-BDB5-F41873C049E7}|AIQuizGeneratorApi\\AIQuizGeneratorApi.csproj|solutionrelative:aiquizgeneratorapi\\models\\explanationresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDAAC5D0-2B30-492D-BDB5-F41873C049E7}|AIQuizGeneratorApi\\AIQuizGeneratorApi.csproj|c:\\users\\joelk\\documents\\my projects\\ai quiz generator\\aiquizgeneratorapi\\aiquizgeneratorapi\\models\\quizquestion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDAAC5D0-2B30-492D-BDB5-F41873C049E7}|AIQuizGeneratorApi\\AIQuizGeneratorApi.csproj|solutionrelative:aiquizgeneratorapi\\models\\quizquestion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDAAC5D0-2B30-492D-BDB5-F41873C049E7}|AIQuizGeneratorApi\\AIQuizGeneratorApi.csproj|c:\\users\\joelk\\documents\\my projects\\ai quiz generator\\aiquizgeneratorapi\\aiquizgeneratorapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{BDAAC5D0-2B30-492D-BDB5-F41873C049E7}|AIQuizGeneratorApi\\AIQuizGeneratorApi.csproj|solutionrelative:aiquizgeneratorapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ExplanationController.cs",
+              "DocumentMoniker": "C:\\Users\\joelk\\Documents\\My Projects\\AI Quiz Generator\\AIQuizGeneratorApi\\AIQuizGeneratorApi\\Controllers\\ExplanationController.cs",
+              "RelativeDocumentMoniker": "AIQuizGeneratorApi\\Controllers\\ExplanationController.cs",
+              "ToolTip": "C:\\Users\\joelk\\Documents\\My Projects\\AI Quiz Generator\\AIQuizGeneratorApi\\AIQuizGeneratorApi\\Controllers\\ExplanationController.cs",
+              "RelativeToolTip": "AIQuizGeneratorApi\\Controllers\\ExplanationController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T15:56:49.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ExplanationResponse.cs",
+              "DocumentMoniker": "C:\\Users\\joelk\\Documents\\My Projects\\AI Quiz Generator\\AIQuizGeneratorApi\\AIQuizGeneratorApi\\Models\\ExplanationResponse.cs",
+              "RelativeDocumentMoniker": "AIQuizGeneratorApi\\Models\\ExplanationResponse.cs",
+              "ToolTip": "C:\\Users\\joelk\\Documents\\My Projects\\AI Quiz Generator\\AIQuizGeneratorApi\\AIQuizGeneratorApi\\Models\\ExplanationResponse.cs",
+              "RelativeToolTip": "AIQuizGeneratorApi\\Models\\ExplanationResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T15:56:19.398Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\joelk\\Documents\\My Projects\\AI Quiz Generator\\AIQuizGeneratorApi\\AIQuizGeneratorApi\\appsettings.json",
+              "RelativeDocumentMoniker": "AIQuizGeneratorApi\\appsettings.json",
+              "ToolTip": "C:\\Users\\joelk\\Documents\\My Projects\\AI Quiz Generator\\AIQuizGeneratorApi\\AIQuizGeneratorApi\\appsettings.json",
+              "RelativeToolTip": "AIQuizGeneratorApi\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-15T05:49:26.764Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "QuizQuestion.cs",
+              "DocumentMoniker": "C:\\Users\\joelk\\Documents\\My Projects\\AI Quiz Generator\\AIQuizGeneratorApi\\AIQuizGeneratorApi\\Models\\QuizQuestion.cs",
+              "RelativeDocumentMoniker": "AIQuizGeneratorApi\\Models\\QuizQuestion.cs",
+              "ToolTip": "C:\\Users\\joelk\\Documents\\My Projects\\AI Quiz Generator\\AIQuizGeneratorApi\\AIQuizGeneratorApi\\Models\\QuizQuestion.cs",
+              "RelativeToolTip": "AIQuizGeneratorApi\\Models\\QuizQuestion.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAAA0AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T05:48:34.973Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\joelk\\Documents\\My Projects\\AI Quiz Generator\\AIQuizGeneratorApi\\AIQuizGeneratorApi\\Program.cs",
+              "RelativeDocumentMoniker": "AIQuizGeneratorApi\\Program.cs",
+              "ToolTip": "C:\\Users\\joelk\\Documents\\My Projects\\AI Quiz Generator\\AIQuizGeneratorApi\\AIQuizGeneratorApi\\Program.cs",
+              "RelativeToolTip": "AIQuizGeneratorApi\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T05:47:04.612Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
