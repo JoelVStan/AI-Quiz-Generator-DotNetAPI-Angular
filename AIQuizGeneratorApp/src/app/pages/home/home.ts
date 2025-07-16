@@ -109,8 +109,12 @@ export class Home {
       q.selectedAnswer = selected;
       q.isCorrect = selected === q.correctAnswer;
 
-      // 🔥 Generate explanation using Gemini
-      this.generateExplanation(q);
+      if (q.isCorrect) {
+        this.score++;
+      } else {
+        // 🔥 Only generate explanation for incorrect answers
+        this.generateExplanation(q);
+      }
     });
 
     const percentage = (this.score / this.questions.length) * 100;
@@ -129,6 +133,7 @@ export class Home {
 
     this.submitted = true;
   }
+
 
   refreshPage() {
     window.location.reload();
@@ -165,13 +170,13 @@ export class Home {
 
   this.quizService.getExplanation(prompt).subscribe({
     next: (res) => {
-      question.explanation = res; // 👈 save explanation
+      question.explanation = res.explanation; // ✅ this works now
     },
     error: (err) => {
-      console.error('Explanation error:', err);
       question.explanation = 'Explanation not available at the moment.';
     }
   });
+
 }
 
 

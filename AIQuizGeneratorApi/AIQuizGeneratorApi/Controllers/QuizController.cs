@@ -1,5 +1,4 @@
 ﻿using AIQuizGeneratorApi.Models;
-using AIQuizGeneratorApi.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
@@ -10,57 +9,89 @@ namespace AIQuizGeneratorApi.Controllers
     [ApiController]
     public class QuizController : ControllerBase
     {
-        private readonly GeminiService _geminiService;
-
-        public QuizController(GeminiService geminiService)
-        {
-            _geminiService = geminiService;
-        }
-
         [HttpPost("generate")]
         public async Task<IActionResult> GenerateQuiz([FromBody] QuizRequest request)
         {
-            if (string.IsNullOrWhiteSpace(request.Topic) || request.NumberOfQuestions < 1)
-                return BadRequest("Topic and number of questions are required.");
+            var prompt = $"Generate {request.NumberOfQuestions} {request.Type.ToUpper()} quiz questions on {request.Topic}. " +
+                         $"Each question should have 4 options and clearly mention the correct answer. " +
+                         $"Return a JSON array like: " +
+                         "[{{\"question\": \"...\", \"options\": [...], \"correctAnswer\": \"...\"}}]. If using a wrapper, use {{\"questions\": [...]}}.";
+
+            var ollamaRequest = new
+            {
+                model = "gemma:2b",
+                messages = new[]
+                {
+            new { role = "system", content = "You are a helpful assistant that returns clean JSON quiz questions only." },
+            new { role = "user", content = prompt }
+        },
+                stream = false
+            };
+
+            using var httpClient = new HttpClient();
+            var response = await httpClient.PostAsJsonAsync("http://localhost:11434/api/chat", ollamaRequest);
+
+            if (!response.IsSuccessStatusCode)
+                return StatusCode((int)response.StatusCode, "Failed to generate quiz from Ollama.");
+
+            var responseJson = await response.Content.ReadAsStringAsync();
 
             try
             {
-                var geminiResponse = await _geminiService.GenerateQuizAsync(request);
+                // Parse Ollama wrapper
+                var wrapper = JsonSerializer.Deserialize<OllamaChatResponse>(responseJson);
+                var rawContent = wrapper?.Message?.Content?.Trim();
 
-                using var doc = JsonDocument.Parse(geminiResponse);
-                var content = doc.RootElement
-                    .GetProperty("candidates")[0]
-                    .GetProperty("content")
-                    .GetProperty("parts")[0]
-                    .GetProperty("text")
-                    .GetString();
-                Console.WriteLine("Gemini raw response:");
-                Console.WriteLine(content);
-                // Strip markdown formatting
-                if (content.StartsWith("```"))
+                if (string.IsNullOrWhiteSpace(rawContent))
+                    return StatusCode(500, "Empty AI response received.");
+
+                // Remove code fences
+                if (rawContent.StartsWith("```"))
                 {
-                    content = content.Trim().Trim('`'); // Remove code fences
-                    int firstBrace = content.IndexOf('[');
-                    content = content.Substring(firstBrace);
+                    rawContent = rawContent
+                        .Replace("```json", "")
+                        .Replace("```", "")
+                        .Trim();
                 }
 
-
-
+                // Try parsing directly as array
                 try
                 {
-                    var questions = JsonSerializer.Deserialize<List<QuizQuestion>>(content);
-                    return Ok(questions);
+                    var directArray = JsonSerializer.Deserialize<List<QuizQuestion>>(rawContent);
+                    return Ok(directArray);
                 }
-                catch (JsonException jsonEx)
+                catch { }
+
+                // Try parsing as object with "questions" array
+                try
                 {
-                    return StatusCode(500, $"JSON parse error: {jsonEx.Message}\nRaw content: {content}");
+                    using var doc = JsonDocument.Parse(rawContent);
+                    if (doc.RootElement.TryGetProperty("questions", out var questionsElement))
+                    {
+                        var questions = JsonSerializer.Deserialize<List<QuizQuestion>>(questionsElement.GetRawText());
+                        return Ok(questions);
+                    }
                 }
+                catch { }
+
+                // Try parsing single object
+                try
+                {
+                    var single = JsonSerializer.Deserialize<QuizQuestion>(rawContent);
+                    return Ok(new List<QuizQuestion> { single });
+                }
+                catch { }
+
+                return StatusCode(500, $"Unable to parse quiz questions.\nRaw: {rawContent}");
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Failed to generate quiz: {ex.Message}");
+                return StatusCode(500, $"Error parsing AI response: {ex.Message}\nRaw: {responseJson}");
             }
         }
+
+
+
     }
 
 }

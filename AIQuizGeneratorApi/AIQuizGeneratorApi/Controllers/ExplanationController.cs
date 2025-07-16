@@ -10,76 +10,113 @@ namespace AIQuizGeneratorApi.Controllers
     [ApiController]
     public class ExplanationController : ControllerBase
     {
-        private readonly IHttpClientFactory _httpClientFactory;
-        private readonly IConfiguration _configuration;
+        //private readonly IHttpClientFactory _httpClientFactory;
+        //private readonly IConfiguration _configuration;
 
-        public ExplanationController(IHttpClientFactory httpClientFactory, IConfiguration configuration)
+        //public ExplanationController(IHttpClientFactory httpClientFactory, IConfiguration configuration)
+        //{
+        //    _httpClientFactory = httpClientFactory;
+        //    _configuration = configuration;
+        //}
+
+        //[HttpPost]
+        //public async Task<ActionResult<ExplanationResponse>> Post([FromBody] ExplanationRequest request)
+        //{
+        //    var apiKey = _configuration["Gemini:ApiKey"];
+        //    if (string.IsNullOrEmpty(apiKey))
+        //    {
+        //        return StatusCode(500, "Gemini API key is missing.");
+        //    }
+
+        //    var client = _httpClientFactory.CreateClient();
+        //    var url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key={apiKey}";
+
+        //    var payload = new
+        //    {
+        //        contents = new[]
+        //        {
+        //        new {
+        //            parts = new[]
+        //            {
+        //                new { text = request.Prompt }
+        //            }
+        //        }
+        //    }
+        //    };
+
+        //    var content = new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json");
+        //    var response = await client.PostAsync(url, content);
+
+        //    if (!response.IsSuccessStatusCode)
+        //    {
+        //        var error = await response.Content.ReadAsStringAsync();
+        //        return StatusCode((int)response.StatusCode, $"Failed to fetch explanation: {error}");
+        //    }
+
+        //    using var stream = await response.Content.ReadAsStreamAsync();
+        //    var json = await JsonSerializer.DeserializeAsync<JsonElement>(stream);
+
+        //    var explanation = json
+        //        .GetProperty("candidates")[0]
+        //        .GetProperty("content")
+        //        .GetProperty("parts")[0]
+        //        .GetProperty("text")
+        //        .GetString();
+
+        //    return Ok(new ExplanationResponse { Explanation = explanation });
+        //}
+        ////[HttpPost]
+        ////public IActionResult GetExplanation([FromBody] PromptRequest request)
+        ////{
+        ////    if (string.IsNullOrWhiteSpace(request.Prompt))
+        ////        return BadRequest("Prompt is required.");
+
+        ////    // Replace this with your Gemini or AI explanation logic
+        ////    string explanation = $"Short explanation for: {request.Prompt}";
+
+        ////    return Ok(new { explanation });
+        ////}
+
+        ////public class PromptRequest
+        ////{
+        ////    public string Prompt { get; set; }
+        ////}
+        ///
+        private readonly HttpClient _httpClient;
+
+        public ExplanationController(IHttpClientFactory httpClientFactory)
         {
-            _httpClientFactory = httpClientFactory;
-            _configuration = configuration;
+            _httpClient = httpClientFactory.CreateClient();
         }
 
         [HttpPost]
-        public async Task<ActionResult<ExplanationResponse>> Post([FromBody] ExplanationRequest request)
+        public async Task<IActionResult> Post([FromBody] PromptRequest request)
         {
-            var apiKey = _configuration["Gemini:ApiKey"];
-            if (string.IsNullOrEmpty(apiKey))
-            {
-                return StatusCode(500, "Gemini API key is missing.");
-            }
-
-            var client = _httpClientFactory.CreateClient();
-            var url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key={apiKey}";
-
             var payload = new
             {
-                contents = new[]
-                {
-                new {
-                    parts = new[]
-                    {
-                        new { text = request.Prompt }
-                    }
-                }
-            }
+                model = "gemma:2b",
+                prompt = request.Prompt,
+                stream = false
             };
 
             var content = new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json");
-            var response = await client.PostAsync(url, content);
+
+            var response = await _httpClient.PostAsync("http://localhost:11434/api/generate", content);
 
             if (!response.IsSuccessStatusCode)
-            {
-                var error = await response.Content.ReadAsStringAsync();
-                return StatusCode((int)response.StatusCode, $"Failed to fetch explanation: {error}");
-            }
+                return StatusCode((int)response.StatusCode, "Failed to generate explanation");
 
-            using var stream = await response.Content.ReadAsStreamAsync();
-            var json = await JsonSerializer.DeserializeAsync<JsonElement>(stream);
+            var json = await response.Content.ReadAsStringAsync();
+            using var doc = JsonDocument.Parse(json);
+            var explanation = doc.RootElement.GetProperty("response").GetString();
 
-            var explanation = json
-                .GetProperty("candidates")[0]
-                .GetProperty("content")
-                .GetProperty("parts")[0]
-                .GetProperty("text")
-                .GetString();
-
-            return Ok(new ExplanationResponse { Explanation = explanation });
+            return Ok(new { explanation });
         }
-        //[HttpPost]
-        //public IActionResult GetExplanation([FromBody] PromptRequest request)
-        //{
-        //    if (string.IsNullOrWhiteSpace(request.Prompt))
-        //        return BadRequest("Prompt is required.");
+    }
 
-        //    // Replace this with your Gemini or AI explanation logic
-        //    string explanation = $"Short explanation for: {request.Prompt}";
-
-        //    return Ok(new { explanation });
-        //}
-
-        //public class PromptRequest
-        //{
-        //    public string Prompt { get; set; }
-        //}
+    public class PromptRequest
+    {
+        public string Prompt { get; set; }
     }
 }
+

@@ -9,21 +9,11 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "AIQuizGeneratorApi.Models.ExplanationRequest",
+        "Type": "AIQuizGeneratorApi.Controllers.PromptRequest",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "AIQuizGeneratorApi.Models.ExplanationResponse",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "AIQuizGeneratorApi.Controllers.QuizController",

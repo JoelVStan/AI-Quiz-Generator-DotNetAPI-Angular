@@ -45,3 +45,4 @@ C:\Users\joelk\Documents\My Projects\AI Quiz Generator\AIQuizGeneratorApi\AIQuiz
 C:\Users\joelk\Documents\My Projects\AI Quiz Generator\AIQuizGeneratorApi\AIQuizGeneratorApi\bin\Debug\net9.0\System.CodeDom.dll
 C:\Users\joelk\Documents\My Projects\AI Quiz Generator\AIQuizGeneratorApi\AIQuizGeneratorApi\bin\Debug\net9.0\System.Management.dll
 C:\Users\joelk\Documents\My Projects\AI Quiz Generator\AIQuizGeneratorApi\AIQuizGeneratorApi\bin\Debug\net9.0\runtimes\win\lib\net7.0\System.Management.dll
+C:\Users\joelk\Documents\My Projects\AI Quiz Generator\AIQuizGeneratorApi\AIQuizGeneratorApi\obj\Debug\net9.0\AIQuizGeneratorApi.sourcelink.json

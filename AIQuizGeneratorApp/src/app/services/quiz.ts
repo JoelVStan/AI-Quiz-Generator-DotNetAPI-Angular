@@ -15,11 +15,10 @@ export class Quiz {
   generateQuiz(request: QuizRequest): Observable<QuizQuestion[]> {
     return this.http.post<QuizQuestion[]>(this.apiUrl, request);
   }
-  getExplanation(prompt: string): Observable<string> {
-  return this.http
-    .post<{ explanation: string }>('https://localhost:7180/api/explanation', { prompt })
-    .pipe(map(res => res.explanation));
-}
+  getExplanation(prompt: string): Observable<{ explanation: string }> {
+    return this.http.post<{ explanation: string }>('https://localhost:7180/api/explanation', { prompt });
+  }
+
 
 
 

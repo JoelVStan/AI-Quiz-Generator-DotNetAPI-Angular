@@ -12,5 +12,6 @@ namespace AIQuizGeneratorApi.Models
 
         [JsonPropertyName("correctAnswer")]
         public string Answer { get; set; }
+
     }
 }
