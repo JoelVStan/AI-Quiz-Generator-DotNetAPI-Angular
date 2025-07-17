@@ -12,10 +12,24 @@ namespace AIQuizGeneratorApi.Controllers
         [HttpPost("generate")]
         public async Task<IActionResult> GenerateQuiz([FromBody] QuizRequest request)
         {
-            var prompt = $"Generate {request.NumberOfQuestions} {request.Type.ToUpper()} quiz questions on {request.Topic}. " +
+            string prompt;
+
+            if (request.Type.ToLower() == "yesno")
+            {
+                prompt = $"Generate {request.NumberOfQuestions} Yes/No quiz questions on {request.Topic}. " +
+                         $"Each question should have only two options: 'Yes' and 'No'. Clearly specify the correct answer. " +
+                         $"Return a JSON array like: " +
+                         "[{{\"question\": \"...\", \"options\": [\"Yes\", \"No\"], \"correctAnswer\": \"Yes\"}}]. " +
+                         "If using a wrapper, use {{\"questions\": [...]}}.";
+            }
+            else // assume MCQ
+            {
+                prompt = $"Generate {request.NumberOfQuestions} multiple choice quiz questions on {request.Topic}. " +
                          $"Each question should have 4 options and clearly mention the correct answer. " +
                          $"Return a JSON array like: " +
                          "[{{\"question\": \"...\", \"options\": [...], \"correctAnswer\": \"...\"}}]. If using a wrapper, use {{\"questions\": [...]}}.";
+            }
+
 
             var ollamaRequest = new
             {

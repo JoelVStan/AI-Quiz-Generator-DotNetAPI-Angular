@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\joelk\\Documents\\My Projects\\AI Quiz Generator\\AIQuizGeneratorApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BDAAC5D0-2B30-492D-BDB5-F41873C049E7}|AIQuizGeneratorApi\\AIQuizGeneratorApi.csproj|c:\\users\\joelk\\documents\\my projects\\ai quiz generator\\aiquizgeneratorapi\\aiquizgeneratorapi\\controllers\\explanationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDAAC5D0-2B30-492D-BDB5-F41873C049E7}|AIQuizGeneratorApi\\AIQuizGeneratorApi.csproj|solutionrelative:aiquizgeneratorapi\\controllers\\explanationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BDAAC5D0-2B30-492D-BDB5-F41873C049E7}|AIQuizGeneratorApi\\AIQuizGeneratorApi.csproj|c:\\users\\joelk\\documents\\my projects\\ai quiz generator\\aiquizgeneratorapi\\aiquizgeneratorapi\\controllers\\quizcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BDAAC5D0-2B30-492D-BDB5-F41873C049E7}|AIQuizGeneratorApi\\AIQuizGeneratorApi.csproj|solutionrelative:aiquizgeneratorapi\\controllers\\quizcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BDAAC5D0-2B30-492D-BDB5-F41873C049E7}|AIQuizGeneratorApi\\AIQuizGeneratorApi.csproj|c:\\users\\joelk\\documents\\my projects\\ai quiz generator\\aiquizgeneratorapi\\aiquizgeneratorapi\\models\\ollamaresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BDAAC5D0-2B30-492D-BDB5-F41873C049E7}|AIQuizGeneratorApi\\AIQuizGeneratorApi.csproj|solutionrelative:aiquizgeneratorapi\\models\\ollamaresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BDAAC5D0-2B30-492D-BDB5-F41873C049E7}|AIQuizGeneratorApi\\AIQuizGeneratorApi.csproj|c:\\users\\joelk\\documents\\my projects\\ai quiz generator\\aiquizgeneratorapi\\aiquizgeneratorapi\\controllers\\explanationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDAAC5D0-2B30-492D-BDB5-F41873C049E7}|AIQuizGeneratorApi\\AIQuizGeneratorApi.csproj|solutionrelative:aiquizgeneratorapi\\controllers\\explanationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BDAAC5D0-2B30-492D-BDB5-F41873C049E7}|AIQuizGeneratorApi\\AIQuizGeneratorApi.csproj|c:\\users\\joelk\\documents\\my projects\\ai quiz generator\\aiquizgeneratorapi\\aiquizgeneratorapi\\models\\quizquestion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BDAAC5D0-2B30-492D-BDB5-F41873C049E7}|AIQuizGeneratorApi\\AIQuizGeneratorApi.csproj|solutionrelative:aiquizgeneratorapi\\models\\quizquestion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BDAAC5D0-2B30-492D-BDB5-F41873C049E7}|AIQuizGeneratorApi\\AIQuizGeneratorApi.csproj|c:\\users\\joelk\\documents\\my projects\\ai quiz generator\\aiquizgeneratorapi\\aiquizgeneratorapi\\models\\ollamaresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDAAC5D0-2B30-492D-BDB5-F41873C049E7}|AIQuizGeneratorApi\\AIQuizGeneratorApi.csproj|solutionrelative:aiquizgeneratorapi\\models\\ollamaresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BDAAC5D0-2B30-492D-BDB5-F41873C049E7}|AIQuizGeneratorApi\\AIQuizGeneratorApi.csproj|c:\\users\\joelk\\documents\\my projects\\ai quiz generator\\aiquizgeneratorapi\\aiquizgeneratorapi\\models\\explanationresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -66,20 +66,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\joelk\\Documents\\My Projects\\AI Quiz Generator\\AIQuizGeneratorApi\\AIQuizGeneratorApi\\appsettings.json",
-              "RelativeDocumentMoniker": "AIQuizGeneratorApi\\appsettings.json",
-              "ToolTip": "C:\\Users\\joelk\\Documents\\My Projects\\AI Quiz Generator\\AIQuizGeneratorApi\\AIQuizGeneratorApi\\appsettings.json",
-              "RelativeToolTip": "AIQuizGeneratorApi\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-16T06:53:50.417Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "OllamaResponse.cs",
               "DocumentMoniker": "C:\\Users\\joelk\\Documents\\My Projects\\AI Quiz Generator\\AIQuizGeneratorApi\\AIQuizGeneratorApi\\Models\\OllamaResponse.cs",
               "RelativeDocumentMoniker": "AIQuizGeneratorApi\\Models\\OllamaResponse.cs",
@@ -93,27 +80,39 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "QuizController.cs",
-              "DocumentMoniker": "C:\\Users\\joelk\\Documents\\My Projects\\AI Quiz Generator\\AIQuizGeneratorApi\\AIQuizGeneratorApi\\Controllers\\QuizController.cs",
-              "RelativeDocumentMoniker": "AIQuizGeneratorApi\\Controllers\\QuizController.cs",
-              "ToolTip": "C:\\Users\\joelk\\Documents\\My Projects\\AI Quiz Generator\\AIQuizGeneratorApi\\AIQuizGeneratorApi\\Controllers\\QuizController.cs",
-              "RelativeToolTip": "AIQuizGeneratorApi\\Controllers\\QuizController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAQwFsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T06:51:05.915Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "ExplanationController.cs",
               "DocumentMoniker": "C:\\Users\\joelk\\Documents\\My Projects\\AI Quiz Generator\\AIQuizGeneratorApi\\AIQuizGeneratorApi\\Controllers\\ExplanationController.cs",
               "RelativeDocumentMoniker": "AIQuizGeneratorApi\\Controllers\\ExplanationController.cs",
               "ToolTip": "C:\\Users\\joelk\\Documents\\My Projects\\AI Quiz Generator\\AIQuizGeneratorApi\\AIQuizGeneratorApi\\Controllers\\ExplanationController.cs",
               "RelativeToolTip": "AIQuizGeneratorApi\\Controllers\\ExplanationController.cs",
-              "ViewState": "AgIAAF0AAAAAAAAAAAAYwHAAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAQwE4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-15T15:56:49.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\joelk\\Documents\\My Projects\\AI Quiz Generator\\AIQuizGeneratorApi\\AIQuizGeneratorApi\\appsettings.json",
+              "RelativeDocumentMoniker": "AIQuizGeneratorApi\\appsettings.json",
+              "ToolTip": "C:\\Users\\joelk\\Documents\\My Projects\\AI Quiz Generator\\AIQuizGeneratorApi\\AIQuizGeneratorApi\\appsettings.json",
+              "RelativeToolTip": "AIQuizGeneratorApi\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-16T06:53:50.417Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "QuizController.cs",
+              "DocumentMoniker": "C:\\Users\\joelk\\Documents\\My Projects\\AI Quiz Generator\\AIQuizGeneratorApi\\AIQuizGeneratorApi\\Controllers\\QuizController.cs",
+              "RelativeDocumentMoniker": "AIQuizGeneratorApi\\Controllers\\QuizController.cs",
+              "ToolTip": "C:\\Users\\joelk\\Documents\\My Projects\\AI Quiz Generator\\AIQuizGeneratorApi\\AIQuizGeneratorApi\\Controllers\\QuizController.cs",
+              "RelativeToolTip": "AIQuizGeneratorApi\\Controllers\\QuizController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAA/wB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-16T06:51:05.915Z",
               "EditorCaption": ""
             },
             {
@@ -126,12 +125,11 @@
               "RelativeToolTip": "AIQuizGeneratorApi\\Models\\ExplanationResponse.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T15:56:19.398Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-15T15:56:19.398Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "QuizQuestion.cs",
               "DocumentMoniker": "C:\\Users\\joelk\\Documents\\My Projects\\AI Quiz Generator\\AIQuizGeneratorApi\\AIQuizGeneratorApi\\Models\\QuizQuestion.cs",
               "RelativeDocumentMoniker": "AIQuizGeneratorApi\\Models\\QuizQuestion.cs",
@@ -152,8 +150,7 @@
               "RelativeToolTip": "AIQuizGeneratorApi\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T05:47:04.612Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-15T05:47:04.612Z"
             }
           ]
         }
