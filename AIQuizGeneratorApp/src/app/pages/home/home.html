@@ -1,19 +1,23 @@
 <div class="parent">
   <div class="container py-5">
     <div class="form-check form-switch mb-3">
-            <input
-                class="form-check-input"
-                type="checkbox"
-                id="darkModeToggle"
-                [(ngModel)]="darkMode"
-                (change)="toggleDarkMode()"
-            />
-            <label class="form-check-label" for="darkModeToggle">
-                Dark Mode
-            </label>
-        </div>
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="darkModeToggle"
+        [(ngModel)]="darkMode"
+        (change)="toggleDarkMode()"
+      />
+      <label class="form-check-label" for="darkModeToggle"> Dark Mode </label>
+
+      <!-- ✅ Logout Button aligned to right -->
+      <button class="logout-btn-modern float-end" (click)="logout()">
+        <i class="fas fa-sign-out-alt me-1"></i> Logout
+      </button>
+    </div>
+
     <!-- Header -->
-    <div class="text-center mb-5">    
+    <div class="text-center mb-5">
       <div class="icon-circle">
         <i class="fas fa-brain text-white" style="font-size: 2.5rem"></i>
       </div>
@@ -147,41 +151,48 @@
             </h4>
 
             <div *ngFor="let q of questions; let i = index" class="mb-4">
-                <h5 class="mb-2">{{ i + 1 }}. {{ q.question }}</h5>
+              <h5 class="mb-2">{{ i + 1 }}. {{ q.question }}</h5>
 
-                <div class="list-group">
-                    <label
-                    *ngFor="let opt of q.options"
-                    class="list-group-item"
-                    [ngClass]="{
-                        'list-group-item-success': submitted && opt === q.selectedAnswer && q.isCorrect,
-                        'list-group-item-danger': submitted && opt === q.selectedAnswer && !q.isCorrect,
-                        'list-group-item-light': submitted && opt !== q.selectedAnswer
-                    }"
-                    >
-                    <input
-                        type="radio"
-                        [name]="'question' + i"
-                        [value]="opt"
-                        [(ngModel)]="selectedAnswers[i]"
-                        [disabled]="submitted"
-                        class="form-check-input me-2"
-                    />
-                    {{ opt }}
-                    </label>
-                </div>
+              <div class="list-group">
+                <label
+                  *ngFor="let opt of q.options"
+                  class="list-group-item"
+                  [ngClass]="{
+                    'list-group-item-success':
+                      submitted && opt === q.selectedAnswer && q.isCorrect,
+                    'list-group-item-danger':
+                      submitted && opt === q.selectedAnswer && !q.isCorrect,
+                    'list-group-item-light':
+                      submitted && opt !== q.selectedAnswer
+                  }"
+                >
+                  <input
+                    type="radio"
+                    [name]="'question' + i"
+                    [value]="opt"
+                    [(ngModel)]="selectedAnswers[i]"
+                    [disabled]="submitted"
+                    class="form-check-input me-2"
+                  />
+                  {{ opt }}
+                </label>
+              </div>
 
-                <!-- Show correct answer if user got it wrong -->
-                <div *ngIf="submitted && !q.isCorrect" class="mt-2 text-success small">
-                    ✅ Correct answer: <strong>{{ q.correctAnswer }}</strong>
-                </div>
-                <!-- Show explanation -->
-                <div *ngIf="submitted && q.explanation" class="mt-2 text-muted small">
+              <!-- Show correct answer if user got it wrong -->
+              <div
+                *ngIf="submitted && !q.isCorrect"
+                class="mt-2 text-success small"
+              >
+                ✅ Correct answer: <strong>{{ q.correctAnswer }}</strong>
+              </div>
+              <!-- Show explanation -->
+              <div
+                *ngIf="submitted && q.explanation"
+                class="mt-2 text-muted small"
+              >
                 💡 <strong>Explanation:</strong> {{ q.explanation }}
-                </div>
-
+              </div>
             </div>
-
 
             <!-- Submit Button -->
             <div class="d-flex justify-content-center">
@@ -201,12 +212,12 @@
               </h5>
             </div> -->
             <div *ngIf="submitted" class="mt-3">
-                <h4>Your Score: {{ score }} / {{ questions.length }}</h4>
-                <p class="lead">{{ resultMessage }}</p>
+              <h4>Your Score: {{ score }} / {{ questions.length }}</h4>
+              <p class="lead">{{ resultMessage }}</p>
             </div>
-             <!-- Refresh button -->
+            <!-- Refresh button -->
             <button class="btn btn-light mt-3" (click)="refreshPage()">
-                🔁 Generate another quiz
+              🔁 Generate another quiz
             </button>
           </div>
         </div>
@@ -218,8 +229,8 @@
 <footer class="bg-light text-center text-muted py-3 border-top">
   <div class="container">
     <small>
-      &copy; {{ currentYear }} AI Quiz Generator. Created by <strong>Joel Stanley</strong>.
+      &copy; {{ currentYear }} AI Quiz Generator. Created by
+      <strong>Joel Stanley</strong>.
     </small>
   </div>
 </footer>
-

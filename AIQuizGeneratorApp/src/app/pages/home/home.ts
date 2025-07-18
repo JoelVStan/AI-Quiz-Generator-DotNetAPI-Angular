@@ -4,6 +4,8 @@ import { Quiz } from '../../services/quiz';
 import { QuizRequest } from '../../models/quiz-request.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Auth } from '../../services/auth';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +22,12 @@ export class Home {
   loading = false;
   error = '';
 
-  constructor(private quizService: Quiz) {}
+  constructor(private quizService: Quiz, private auth: Auth, private router: Router) {}
+
+  logout() {
+    this.auth.logout();
+    this.router.navigate(['/login']);
+  }
 
   generateQuiz() {
     this.loading = true;

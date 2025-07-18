@@ -1,0 +1,75 @@
+<div class="bg-light">
+  <div class="container-fluid vh-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+        <div class="card shadow-lg border-0 rounded-4">
+          <div class="card-body p-4">
+            <div class="text-center mb-4">
+              <h2 class="fw-bold text-primary">Welcome Back</h2>
+              <p class="text-muted">Please sign in to your account</p>
+            </div>
+
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div class="mb-3">
+                <label for="email" class="form-label fw-semibold">
+                  <i class="bi bi-envelope me-2"></i>Email Address
+                </label>
+                <input
+                  type="email"
+                  formControlName="email"
+                  class="form-control form-control-lg rounded-3"
+                  id="email"
+                  placeholder="Enter your email"
+                  required
+                />
+              </div>
+
+              <div class="mb-4">
+                <label for="password" class="form-label fw-semibold">
+                  <i class="bi bi-lock me-2"></i>Password
+                </label>
+                <input
+                  type="password"
+                  formControlName="password"
+                  class="form-control form-control-lg rounded-3"
+                  id="password"
+                  placeholder="Enter your password"
+                  required
+                />
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg w-100 rounded-3 fw-semibold"
+              >
+                <i class="bi bi-box-arrow-in-right me-2"></i>Login
+              </button>
+              <div *ngIf="loading" class="mt-3 text-center">
+                <span class="spinner-border text-primary" role="status"></span>
+                <div>Logging you in...</div>
+              </div>
+
+              <div
+                *ngIf="loginSuccess && !loading"
+                class="alert alert-success mt-3 text-center"
+              >
+                Login successful. Ready to generate quizzes!
+              </div>
+            </form>
+
+            <hr class="my-4" />
+
+            <div class="text-center">
+              <p class="text-muted mb-0">
+                Don't have an account?
+                <a routerLink="/signup" class="text-decoration-none fw-semibold"
+                  >Sign up</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

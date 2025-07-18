@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AIQuizGeneratorApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb5931ce602f06400471619640e486654403f6eb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2bf2e193cb5feba95b9b670de5c7d2dc7dcb0e1d")]
 [assembly: System.Reflection.AssemblyProductAttribute("AIQuizGeneratorApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AIQuizGeneratorApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
