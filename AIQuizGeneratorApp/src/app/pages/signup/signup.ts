@@ -17,16 +17,26 @@ export class Signup {
 
   constructor(private fb: FormBuilder, private auth: Auth, private router: Router, private toastr: ToastrService) {
     this.signupForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
-    });
+    name: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    password: [
+      '',
+      [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.pattern(/^(?=.*[^A-Za-z0-9])/)
+      ]
+    ]
+  });
   }
   loading = false;
   signupSuccess = false;
 
   onSubmit() {
-    if (this.signupForm.invalid) return;
+    if (this.signupForm.invalid) {
+      this.signupForm.markAllAsTouched(); // ✅ show validation errors
+      return;
+    }
 
     this.loading = true;
     this.auth.signup(this.signupForm.value).subscribe({

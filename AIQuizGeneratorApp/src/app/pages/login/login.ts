@@ -15,6 +15,9 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class Login {
   loginForm: ReturnType<FormBuilder['group']>;
+  loading = false;
+  loginSuccess = false;
+  loginError = false; // add this
 
   constructor(private fb: FormBuilder, private auth: Auth, private router: Router, private toastr: ToastrService) {
     this.loginForm = this.fb.group({
@@ -22,23 +25,28 @@ export class Login {
       password: ['', Validators.required]
     });
   }
-  loading = false;
-  loginSuccess = false; 
 
   onSubmit() {
-    if (this.loginForm.invalid) return;
+    if (this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched(); // show validation errors
+      return;
+    }
+
     this.loading = true;
+    this.loginError = false;
+
     this.auth.login(this.loginForm.value).subscribe({
       next: () => {
-      this.loginSuccess = true;
-      this.loading = false;
-      // Navigate to quiz page after brief message
-      setTimeout(() => this.router.navigate(['/home']), 2000);
+        this.loginSuccess = true;
+        this.loading = false;
+        setTimeout(() => this.router.navigate(['/home']), 2000);
       },
       error: () => {
         this.loading = false;
+        this.loginError = true;
         this.toastr.error('Invalid credentials');
       }
     });
   }
 }
+
